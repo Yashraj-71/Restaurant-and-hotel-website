@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login form</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <form action="#" onsubmit="return validateForm()">
+            <h2>Login-form</h2>
+            <div class="input-field">
+                <input type="text" id="email" required />
+                <label>Enter email</label>
+            </div>
+            <div class="input-field">
+                <input type="password" id="password" required />
+                <label>Enter password</label>
+            </div>
+            <div class="forget">
+                <label for="Save-login">
+                    <input type="checkbox" id="Save-login" />
+                    <p>Save login information</p>
+                </label>
+                <a href="#">Forgot password?</a>
+            </div>
+            <button type="submit">Log In</button>
+            <div class="Create-account">
+                <p>Don't have an account? <a href="#">Create account</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return false; 
+            }
+            if (password.length < 8 || password.length > 14) {
+                alert('Password must be between 8 and 14 characters');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>
